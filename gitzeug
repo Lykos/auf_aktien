@@ -1,0 +1,27 @@
+Zeug herunterladen: git pull
+
+Neuer branch (wenn du was verändern willst, am Anfang das machen): git checkout -b änderungsname
+
+Wiederhole:
+	(Man kann alle Branches mit "git branch" anschauen und mit git branch -d löschen. "master" heisst der Hauptbranch, mit git checkout "branchname" wechselt man.)
+
+	Datei hinzufügen: git add dateiname
+
+	Ändern und Zeug machen.
+
+	(Mit "git status" kannst du schauen, welche Dateien du verändert hast)
+
+	Wenn die Änderungen Scheisse sind:
+     		Wieder zum Hauptbranch gehen: git checkout master
+     		Doofen Branch löschen: git branch -D dooferbranch
+     		(Grosses D bedeutet, ganz löschen ohne Rücksicht auf Verluste)
+
+	Wenn die Änderungen gut sind:
+    	     Änderungen speichern im aktuellen Branch: git commit -a
+    	     Danach wird ein Emacs gestartet, dort sollst du einzeilig deine Änderung zusammenfassen. Emacs beendet man mit Ctrl-x Ctrl-c.
+
+Irgendwann, wenn du genug Änderungen gemacht hast und willst, dass das ganze wirklich für alle verfügbar ist:
+    zum Hauptbranch gehen: git checkout master
+    Änderungen reintun: git merge änderungsbranch
+    Änderungsbranch löschen: git -d änderungsbranch
+    Verfügbar machen: git push
