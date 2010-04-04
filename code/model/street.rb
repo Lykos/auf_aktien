@@ -1,7 +1,7 @@
 # street.rb
 # author: Ulrich Brodowsky
 
-require "../code/model/share_exception.rb"
+require "code/model/share_exception.rb"
 
 # Provisorial:
 

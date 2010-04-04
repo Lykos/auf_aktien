@@ -1,7 +1,7 @@
 # street_spec.rb
 # author: Ulrich Brodowsky
 
-require '../code/model/street.rb'
+require 'code/model/street.rb'
 
 describe Model::Street do
   before do
