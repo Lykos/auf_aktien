@@ -1,6 +1,8 @@
 # street.rb
 # author: Ulrich Brodowsky
 
+require "../code/model/share_exception.rb"
+
 # Provisorial:
 
 STREET_TURN_COST_FACTOR = 0.5

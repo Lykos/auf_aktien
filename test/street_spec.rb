@@ -1,7 +1,7 @@
 # street_spec.rb
 # author: Ulrich Brodowsky
 
-require 'street.rb'
+require '../code/model/street.rb'
 
 describe Model::Street do
   before do
@@ -71,13 +71,13 @@ describe Model::Street do
     it "should raise an exception when downgraded after creation" do
       lambda {
         @street.downgrade!
-      }.should_raise ShareException
+      }.should raise_error ShareException
     end
 
     it "should raise an exception if we upgrade 6 times(or more)" do
       lambda {
         6.times {@street.upgrade!}
-      }.should_raise ShareException
+      }.should raise_error ShareException
     end
     
     it "should raise an exception if we upgrade 6 times(or more)(after 1 upgrade and 1 downgrade)" do
@@ -85,21 +85,21 @@ describe Model::Street do
         4.times {@street.upgrade!}
         @street.downgrade!
         3.times {@street.upgrade!} 
-      }.should_raise ShareException
+      }.should raise_error ShareException
     end
     
     it "should raise an exception if we upgrade 2 times and want to turn it" do
       lambda {
         2.times {@street.upgrade!}
         @street.turn!
-      }.should_raise ShareException
+      }.should raise_error ShareException
     end
     
     it "should raise an exception if we upgrade when it is turned" do
       lambda {
         @street.turn!
         @street.upgrade!
-      }.should_raise ShareException
+      }.should raise_error ShareException
     end
     
     it "should raise an exception if we downgrade from level 0(after 1 upgrade and 1 downgrade)" do
@@ -107,7 +107,7 @@ describe Model::Street do
         @street.upgrade!
         @street.downgrade!
         @street.downgrade!
-      }.should_raise ShareException
+      }.should raise_error ShareException
     end
     
   end
