@@ -1,3 +1,3 @@
 Hier kommen wichtige Aufgaben, die erledigt werden müssen, dazu.
 
-Die requires sollen etwas allgemeiner als mit ../ und so laufen.
+Konfigurationsdatei schreiben.
