@@ -67,20 +67,20 @@ describe Model::Street do
     end
   end
 
-  describe "after invalid operations" do
-    it "should raise an exception when downgraded after creation" do
+  describe "should raise an exception" do
+    it "when downgraded after creation" do
       lambda {
         @street.downgrade!
       }.should raise_error ShareException
     end
 
-    it "should raise an exception if we upgrade 6 times(or more)" do
+    it "if we upgrade 6 times(or more)" do
       lambda {
         6.times {@street.upgrade!}
       }.should raise_error ShareException
     end
     
-    it "should raise an exception if we upgrade 6 times(or more)(after 1 upgrade and 1 downgrade)" do
+    it "f we upgrade 6 times(or more)(after 1 upgrade and 1 downgrade)" do
     lambda {
         4.times {@street.upgrade!}
         @street.downgrade!
@@ -88,21 +88,21 @@ describe Model::Street do
       }.should raise_error ShareException
     end
     
-    it "should raise an exception if we upgrade 2 times and want to turn it" do
+    it "if we upgrade 2 times and want to turn it" do
       lambda {
         2.times {@street.upgrade!}
         @street.turn!
       }.should raise_error ShareException
     end
     
-    it "should raise an exception if we upgrade when it is turned" do
+    it "if we upgrade when it is turned" do
       lambda {
         @street.turn!
         @street.upgrade!
       }.should raise_error ShareException
     end
     
-    it "should raise an exception if we downgrade from level 0(after 1 upgrade and 1 downgrade)" do
+    it "if we downgrade from level 0(after 1 upgrade and 1 downgrade)" do
       lambda {
         @street.upgrade!
         @street.downgrade!

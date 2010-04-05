@@ -4,7 +4,7 @@
 require 'code/model/account.rb'
 
 describe Model::Account do
-  before(:each) do
+  before do
     @balance = 23
     @account = Model::Account.new(@balance)
   end
@@ -66,62 +66,62 @@ describe Model::Account do
     end
   end
 
-  describe "after forbidden operations" do
-    it "should raise an exception when it pays a nonumeric value." do
+  describe "should raise an exception" do
+    it "if it pays a nonumeric value." do
       lambda {
         @account.pay! "price"
       }.should raise_error ArgumentError
     end
 
-    it "should raise an exception when it receives a nonumeric value" do
+    it "if it receives a nonumeric value" do
       lambda {
         @account.receive! "price"
       }.should raise_error ArgumentError
     end
 
-    it "should raise an exception when it is asked if it can pay a nonumeric value" do
+    it "if it is asked if it can pay a nonumeric value" do
       lambda {
         @account.can_pay? "price"
       }.should raise_error ArgumentError
     end
 
-    it "should raise an exception when it pays a noninteger value." do
+    it "if it pays a noninteger value." do
       lambda {
         @account.pay! 2.2
       }.should raise_error ArgumentError
     end
 
-    it "should raise an exception when it receives a noninteger value" do
+    it "if it receives a noninteger value" do
       lambda {
         @account.receive! 2.2
       }.should raise_error ArgumentError
     end
     
-    it "should raise an exception when it is asked if it can pay a noninteger value" do
+    it "if it is asked if it can pay a noninteger value" do
       lambda {
         @account.can_pay? 2.2
       }.should raise_error ArgumentError
     end
 
-    it "should raise an exception when it pays a negative value." do
+    it "if when it pays a negative value." do
       lambda {
         @account.pay! -2
       }.should raise_error ArgumentError
     end
 
-    it "should raise an exception when it receives a negeative value" do
+    it "if it receives a negeative value" do
       lambda {
         @account.receive! -2
       }.should raise_error ArgumentError
     end
 
-    it "should raise an exception when it is asked if it can pay a negative value" do
+    it "if it is asked if it can pay a negative value" do
       lambda {
         @account.can_pay? -2
       }.should raise_error ArgumentError
     end
 
-    it "should raise an exception when it pays a value bigger than its balance" do
+    it "if it pays a value bigger than its balance" do
       lambda {
         @account.pay! @balance + 2
       }.should raise_error ArgumentError

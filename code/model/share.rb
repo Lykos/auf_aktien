@@ -1,6 +1,8 @@
 # aktie.rb
 # author: Bernhard Brodowsky
 
+require 'code/model/street.rb'
+
 # provisorial
 
 SHARE_PRICE_FACTOR = 1.5
