@@ -1,3 +1,4 @@
 Hier kommen wichtige Aufgaben, die erledigt werden müssen, dazu.
 
-Konfigurationsdatei schreiben.
+- Konfigurationsdatei schreiben.
+- Argumente prüfen bei Street.
