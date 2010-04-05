@@ -7,9 +7,8 @@ require 'code/model/street.rb'
 describe Model::Share do
   before do
     @price = 2320
-    @street = Model::Street.new({:price => 2})
+    @street = mock("street")
     @street.stub!(:price).and_return(@price)
-    @street.stub!(:class).and_return(Model::Street)
   end
   
   describe "while creating" do
@@ -17,12 +16,6 @@ describe Model::Share do
       lambda {
         Model::Share.new(@street)
       }.should_not raise_error
-    end
-
-    it "should raise an exception if we create it with a nonstreet argument" do
-      lambda {
-        Model::Share.new("street")
-      }.should raise_error(ArgumentError)
     end
   end
   describe "in any situation" do
