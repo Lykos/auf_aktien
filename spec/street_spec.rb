@@ -1,16 +1,23 @@
 # author: Ulrich Brodowsky
 
-require 'code/model/street.rb'
-require 'test/possession_spec'
+$:.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
+$:.unshift(File.join(File.dirname(__FILE__)))
+
+require 'model/street'
+require 'all_possessions_spec'
 
 describe Model::Street do
+  
   before do
     @name = "Testname"
     @price = 1000
     @upgrade_cost = 1000
     @downgrade_cost = 1000
-    @entry_costs = [100,250,900,1500,2500,4500]
-    @street = Model::Street.new :name => @name, :price => @price, :upgrade_cost => @upgrade_cost, :entry_costs => @entry_costs, :downgrade_cost => @downgrade_cost
+    @entry_costs = [100, 250, 900, 1500, 2500, 4500]
+    arguments = {:name => @name, :price => @price,
+      :upgrade_cost => @upgrade_cost, :entry_costs => @entry_costs,
+      :downgrade_cost => @downgrade_cost}
+    @street = Model::Street.new(arguments)
     @possession = @street
   end
   
@@ -18,10 +25,6 @@ describe Model::Street do
 
   describe "after creation" do
 
-    it "should have the name we gave it" do
-      @street.name.should equal @name
-    end
-    
     it "should have the upgrade costs we gave" do
       @street.upgrade_cost.should equal @upgrade_cost
     end
@@ -37,10 +40,6 @@ describe Model::Street do
     it "should have level 0" do
       @street.level.should equal 0
     end
-    
-    it "should have no owner before we specified one" do
-      @street.owner.should be_nil
-    end
 
     it "shouldn't be downgradable" do
       @street.should_not be_downgradable
@@ -49,9 +48,11 @@ describe Model::Street do
     it "should be upgradable" do
       @street.should be_upgradable
     end
+
   end
 
   describe "should raise an exception" do
+
     it "when downgraded after creation" do
       lambda {
         @street.downgrade!
@@ -97,17 +98,13 @@ describe Model::Street do
   end
 
   describe "in any situation" do
-    it "should have the owner we gave" do
-      @street.owner = @owner
-      @street.owner.should equal @owner
-    end    
-    
+   
     it "should have the level 1 costs with level 1"  do
       @street.upgrade!
       @street.entry_cost.should equal @entry_costs[1]
     end
     
-    it "should be turnable with level 0(after 1 upgrade and 1 downgrade)" do
+    it "should be turnable with level 0 (after 1 upgrade and 1 downgrade)" do
       @street.upgrade!
       @street.downgrade!    
       @street.should be_turnable
@@ -122,12 +119,6 @@ describe Model::Street do
     it "should be turned after turning" do
       @street.turn!
       @street.should be_turned
-    end
-    
-    it "shouldn't be turned after turning 2 times" do
-      @street.turn!
-      @street.turn!
-      @street.should_not be_turned
     end
     
     it "should have level 2 after 2 upgrades" do
@@ -168,5 +159,7 @@ describe Model::Street do
       @street.downgrade!        
       @street.should be_upgradable
     end
+
   end
+
 end

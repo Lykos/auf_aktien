@@ -1,36 +1,26 @@
 # street.rb
 # author: Ulrich Brodowsky
 
-require "code/exceptions/auf_aktien_exception.rb"
-
-# Provisorial:
-
-STREET_TURN_COST_FACTOR = 0.5
-STREET_TURN_WIN_FACTOR = 0.5
+require 'exceptions/auf_aktien_exception'
+require 'model/possession'
 
 module Model
   
   # Represents a street in auf_aktien
 
-  class Street
+  class Street < Possession
 
     # initialize a new street with given parameters
 
-    def initialize(information)
-      @name = information[:name]
-      @price = information[:price]
-      @upgrade_cost = information[:upgrade_cost]
-      @entry_costs = information[:entry_costs]
-      @downgrade_cost = information[:downgrade_cost]
-      @turned = false
-      @turn_cost = (@price * STREET_TURN_COST_FACTOR).to_i
-      @turn_win = (@price * STREET_TURN_WIN_FACTOR).to_i
-      @owner = nil
+    def initialize(informations)
+      super
+      @upgrade_cost = informations[:upgrade_cost]
+      @entry_costs = informations[:entry_costs]
+      @downgrade_cost = informations[:downgrade_cost]
       @level = 0
     end
     
-    attr_reader :name, :price, :upgrade_cost, :entry_costs, :downgrade_cost, :turned, :turn_cost, :turn_win, :level 
-    attr_accessor :owner
+    attr_reader :upgrade_cost, :entry_costs, :downgrade_cost, :level
 
     # increases the level by one
 
@@ -68,26 +58,12 @@ module Model
       @level > 0 and @turned == false
     end
     
-    # turns the stree, so that it can't be upgraded or so that it can be upgraded
-
-    def turn!
-      unless turnable?
-        raise AufAktienException, "#{inspect} turned without possibility."
-      end
-      @turned = !@turned
-    end
-
-    # Shows if the street can't be up and downgraded.
-
-    def turned?
-      @turned
-    end
-    
     # Shows if the street can be turned.
-    
+
     def turnable?
       @level == 0
     end
+
   end
 
 end

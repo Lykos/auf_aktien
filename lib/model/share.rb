@@ -1,7 +1,6 @@
-# aktie.rb
-# author: Bernhard Brodowsky
+# author: Bernhard F. Brodowsky
 
-require 'code/model/street.rb'
+require 'model/street'
 
 # provisorial
 
@@ -11,13 +10,14 @@ module Model
 
   # A class that represents the shares.
 
-  class Share
+  class Share < Possession
     
     # Initializes a new share with a given price.
 
     def initialize(street)
       @street = street
-      @price = (street.price * SHARE_PRICE_FACTOR).to_i
+      super(:name => @street.name + " share",
+        :price => @price = (@street.price * SHARE_PRICE_FACTOR).to_i)
     end
 
     attr_reader :street, :price

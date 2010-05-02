@@ -1,7 +1,9 @@
-# To change this template, choose Tools | Templates
-# and open the template in the editor.
+# authour: Bernhard F. Brodowsky
 
-require 'code/model/account.rb'
+$:.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
+$:.unshift(File.join(File.dirname(__FILE__)))
+
+require 'model/account'
 
 describe Model::Account do
   before do
