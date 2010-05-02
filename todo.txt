@@ -1,5 +1,0 @@
-Hier kommen wichtige Aufgaben, die erledigt werden müssen, dazu.
-
-- Konfigurationsdatei schreiben.
-- Argumente prüfen bei Street.
-- Konventionen (BDD + style etc) schreiben.
