@@ -1,1 +1,3 @@
 rspec
+rcov
+rake
