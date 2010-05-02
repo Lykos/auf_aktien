@@ -1,46 +1,46 @@
 Verwendung von Git
 ==================
 
-Git ist ein verteiltes Versionsverwaltungssystem, dass es einem einzelnen Programmierer ermöglicht,
-effizient Änderungen und versehentliches löschen Rückgängig zu machen und mehreren Programmierern
+Git ist ein verteiltes Versionsverwaltungssystem, dass es einem einzelnen Programmierer ermï¿½glicht,
+effizient ï¿½nderungen und versehentliches lï¿½schen Rï¿½ckgï¿½ngig zu machen und mehreren Programmierern
 erlaubt, zusammenzuarbeiten an einem Programm.
 
 Zeug herunterladen
 -------------------
-Neue Sachen aus Github runterladen: `git pull origin master'
+Neue Sachen aus Github runterladen: `git pull origin master`
 
 Arbeiten (Befehle)
 ------------------
-- Neuer Branch: `git checkout -b branch_name'
-- Bestehende Branches anschauen: `git branch'
-- Zu einem Branch wechseln: `git checkout branch_name'
-- Einen eingebauten branch löschen: `git branch -d branch_name'
-- Einen Branch zum jetzigen Branch dazutun: `git merge branch_name'
-- Zum Hauptbranch gehen: `git checkout master'
-- Datei hinzufügen: `git add dateiname'
-- Schauen welche Sachen du verändert hast: `git status'
-- Ohne Rücksicht auf verluste löschen: `git branch -D'
-- Änderungen committen (Möglichst oft machen: `git branch -a -m änderungs_nachricht'
-- Änderungen in einer Datei seit dem letzten commit rückgängig machen: `git checkout HEAD datei_name'
-- Alle Änderungen seit dem letzten commit rückgängig machen: `git reset --hard HEAD'
-- Einen ganzen commit Rückgängig machen: `git revert HEAD'
+- Neuer Branch: `git checkout -b branch_name`
+- Bestehende Branches anschauen: `git branch`
+- Zu einem Branch wechseln: `git checkout branch_name`
+- Einen eingebauten branch lï¿½schen: `git branch -d branch_name`
+- Einen Branch zum jetzigen Branch dazutun: `git merge branch_name`
+- Zum Hauptbranch gehen: `git checkout master`
+- Datei hinzufï¿½gen: `git add dateiname`
+- Schauen welche Sachen du verï¿½ndert hast: `git status`
+- Ohne Rï¿½cksicht auf verluste lï¿½schen: `git branch -D`
+- ï¿½nderungen committen (Mï¿½glichst oft machen: `git branch -a -m ï¿½nderungs_nachricht`
+- ï¿½nderungen in einer Datei seit dem letzten commit rï¿½ckgï¿½ngig machen: `git checkout HEAD datei_name`
+- Alle ï¿½nderungen seit dem letzten commit rï¿½ckgï¿½ngig machen: `git reset --hard HEAD`
+- Einen ganzen commit Rï¿½ckgï¿½ngig machen: `git revert HEAD`
 
 Hochladen
 ---------
-- Unbedingt die bisherigen Änderungen neu herunterladen: `git pull origin master'
-- Verfügbar machen: `git push origin master'
+- Unbedingt die bisherigen ï¿½nderungen neu herunterladen: `git pull origin master`
+- Verfï¿½gbar machen: `git push origin master`
 
 Arbeiten (Typischer Ablauf)
 ---------------------------
-- Für eine neue Sache einen neuen Branch aufmachen.
-- Dateien ändern und neue hinzufügen.
+- Fï¿½r eine neue Sache einen neuen Branch aufmachen.
+- Dateien ï¿½ndern und neue hinzufï¿½gen.
 - Immer wieder committen.
-- Eventuell Änderungen rückgängig machen.
-- Wenn die Änderungen Scheisse sind:
+- Eventuell ï¿½nderungen rï¿½ckgï¿½ngig machen.
+- Wenn die ï¿½nderungen Scheisse sind:
   - Wieder zum Hauptbranch gehen.
-  - Doofen Branch löschen.
-- Wenn die Änderungen gut sind:
+  - Doofen Branch lï¿½schen.
+- Wenn die ï¿½nderungen gut sind:
   - Zum Hauptbranch gehen.
-  - Den Änderungsbranch reinmergen.
+  - Den ï¿½nderungsbranch reinmergen.
   - hochladen
 
