@@ -1,5 +1,6 @@
-# share_exception.rb
 # author: Bernhard Brodowsky
 
-class ShareException < Exception
+# The superclass of all our exceptions, useful for rescuing our own exceptions only.
+#
+class AufAktienException < StandardError
 end

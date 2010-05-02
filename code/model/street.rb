@@ -1,7 +1,7 @@
 # street.rb
 # author: Ulrich Brodowsky
 
-require "code/model/share_exception.rb"
+require "code/exceptions/auf_aktien_exception.rb"
 
 # Provisorial:
 
@@ -36,7 +36,7 @@ module Model
 
     def upgrade!
       unless upgradable?
-        raise ShareException, "#{inspect} upgraded without possibility."
+        raise AufAktienException, "#{inspect} upgraded without possibility."
       end
       @level += 1
     end
@@ -51,7 +51,7 @@ module Model
 
     def downgrade!
       unless downgradable?
-        raise ShareException, "#{inspect} downgraded without possibility."
+        raise AufAktienException, "#{inspect} downgraded without possibility."
       end
       @level -= 1
     end
@@ -72,7 +72,7 @@ module Model
 
     def turn!
       unless turnable?
-        raise ShareException, "#{inspect} turned without possibility."
+        raise AufAktienException, "#{inspect} turned without possibility."
       end
       @turned = !@turned
     end

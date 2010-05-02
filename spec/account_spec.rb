@@ -32,7 +32,7 @@ describe Model::Account do
 
     it "should raise an exception when initialized with a negative balance" do
       lambda {
-        Model::Account.new(2.2)
+        Model::Account.new(-1)
       }.should raise_error ArgumentError
     end
   end

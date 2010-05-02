@@ -1,7 +1,7 @@
-# street_spec.rb
 # author: Ulrich Brodowsky
 
 require 'code/model/street.rb'
+require 'test/possession_spec'
 
 describe Model::Street do
   before do
@@ -11,23 +11,15 @@ describe Model::Street do
     @downgrade_cost = 1000
     @entry_costs = [100,250,900,1500,2500,4500]
     @street = Model::Street.new :name => @name, :price => @price, :upgrade_cost => @upgrade_cost, :entry_costs => @entry_costs, :downgrade_cost => @downgrade_cost
+    @possession = @street
   end
   
+  it_should_behave_like "all possessions"
+
   describe "after creation" do
+
     it "should have the name we gave it" do
       @street.name.should equal @name
-    end
-    
-    it "should have the price we gave it" do
-      @street.price.should equal @price
-    end
-    
-    it "should have the turn cost of half the price" do
-      @street.turn_cost.should equal @price / 2
-    end
-    
-    it "should have the turn win of half the price" do
-      @street.turn_win.should equal @price / 2
     end
     
     it "should have the upgrade costs we gave" do
@@ -44,14 +36,6 @@ describe Model::Street do
     
     it "should have level 0" do
       @street.level.should equal 0
-    end
-    
-    it "shouldn't be turned" do
-      @street.should_not be_turned
-    end
-    
-    it "should be turnable" do
-      @street.should be_turnable
     end
     
     it "should have no owner before we specified one" do
@@ -71,13 +55,13 @@ describe Model::Street do
     it "when downgraded after creation" do
       lambda {
         @street.downgrade!
-      }.should raise_error ShareException
+      }.should raise_error AufAktienException
     end
 
     it "if we upgrade 6 times(or more)" do
       lambda {
         6.times {@street.upgrade!}
-      }.should raise_error ShareException
+      }.should raise_error AufAktienException
     end
     
     it "f we upgrade 6 times(or more)(after 1 upgrade and 1 downgrade)" do
@@ -85,21 +69,21 @@ describe Model::Street do
         4.times {@street.upgrade!}
         @street.downgrade!
         3.times {@street.upgrade!} 
-      }.should raise_error ShareException
+      }.should raise_error AufAktienException
     end
     
     it "if we upgrade 2 times and want to turn it" do
       lambda {
         2.times {@street.upgrade!}
         @street.turn!
-      }.should raise_error ShareException
+      }.should raise_error AufAktienException
     end
     
     it "if we upgrade when it is turned" do
       lambda {
         @street.turn!
         @street.upgrade!
-      }.should raise_error ShareException
+      }.should raise_error AufAktienException
     end
     
     it "if we downgrade from level 0(after 1 upgrade and 1 downgrade)" do
@@ -107,7 +91,7 @@ describe Model::Street do
         @street.upgrade!
         @street.downgrade!
         @street.downgrade!
-      }.should raise_error ShareException
+      }.should raise_error AufAktienException
     end
     
   end
