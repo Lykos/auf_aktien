@@ -2,9 +2,9 @@ require 'rake'
 require 'spec/rake/spectask'
 require 'rake/rdoctask'
 
-SPEC_FILES = 'test/*.rb'
-SOURCE_FILES = 'code/**/*.rb'
-README = 'README.txt'
+SPEC_FILES = 'spec/*.rb'
+SOURCE_FILES = 'lib/**/*.rb'
+README = 'README.markdown'
 RDOC_DIR = 'doc'
 
 desc "Run all specs with RCov."
