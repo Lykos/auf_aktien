@@ -7,15 +7,11 @@ erlaubt, zusammenzuarbeiten an einem Programm.
 
 Zeug herunterladen
 -------------------
-`git pull'
-
-Neuer branch
-------------
-Wenn du was verändern willst, am Anfang einen neuen Branch (=Ast) erstellen:
-`git checkout -b änderungsname'
+Neue Sachen aus Github runterladen: `git pull origin master'
 
 Arbeiten (Befehle)
 ------------------
+- Neuer Branch: `git checkout -b branch_name'
 - Bestehende Branches anschauen: `git branch'
 - Zu einem Branch wechseln: `git checkout branch_name'
 - Einen eingebauten branch löschen: `git branch -d branch_name'
@@ -31,7 +27,7 @@ Arbeiten (Befehle)
 
 Hochladen
 ---------
-- Unbedingt die bisherigen Änderungen neu herunterladen: `git pull'
+- Unbedingt die bisherigen Änderungen neu herunterladen: `git pull origin master'
 - Verfügbar machen: `git push origin master'
 
 Arbeiten (Typischer Ablauf)
