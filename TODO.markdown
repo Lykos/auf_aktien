@@ -12,7 +12,7 @@ Organisatorisches
 
 Neue Klassen
 ------------
-
+- Player
 
 Bestehende Klassen
 ------------------
