@@ -1,4 +1,3 @@
-# street.rb
 # author: Ulrich Brodowsky
 
 require 'exceptions/auf_aktien_exception'

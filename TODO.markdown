@@ -12,10 +12,11 @@ Organisatorisches
 
 Neue Klassen
 ------------
-Game
-Square
-StreetSquare
-Board
+- Game
+- Square
+- StreetSquare
+- Board
+- Player
 
 Bestehende Klassen
 ------------------
