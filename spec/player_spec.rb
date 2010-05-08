@@ -5,7 +5,7 @@ $:.unshift(File.join(File.dirname(__FILE__)))
 
 require 'model/player'
 
-describe Model::Street do
+describe Model::Player do
   
   before do
     @name = "Testname"
