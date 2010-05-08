@@ -12,7 +12,10 @@ Organisatorisches
 
 Neue Klassen
 ------------
-
+Game
+Square
+StreetSquare
+Board
 
 Bestehende Klassen
 ------------------
