@@ -15,7 +15,16 @@ Neue Klassen
 - Game
 - Square
 - StreetSquare
+- GroupSquare (Trains)
+- SpecialSquare (Wasserkraft etc)
+- CommunitySquare
+- FreeParkingSquare
+- StartSquare
+- EventSquare
+- PrisonSquare
+- PolicemanSquare
 - Board
+- Pawn
 - Player
 
 Bestehende Klassen
